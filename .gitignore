@@ -1,0 +1,55 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Виртуальное окружение
+venv/
+env/
+
+# Файлы настроек IDE
+.vscode/
+.idea/
+
+# Логи и временные файлы
+*.log
+*.tmp
+*.swp
+
+# Файлы Jupyter Notebook checkpoint
+.ipynb_checkpoints/
+
+# Секретные или конфиденциальные файлы
+*.env
+.env
+
+# Кэш pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# PyInstaller
+dist/
+build/
+*.spec
+
+# MyPy
+.mypy_cache/
+
+# pytest
+.cache/
+
+# pyenv
+.python-version
+
+# VS Code settings
+*.code-workspace
+
+# Windows специфические файлы
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS специфические файлы
+.DS_Store
+
+*json
