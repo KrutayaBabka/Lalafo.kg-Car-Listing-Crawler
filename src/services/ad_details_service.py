@@ -25,7 +25,7 @@ Version: 1.0.0
 """
 
 import asyncio
-from aiohttp import (
+from aiohttp import(
     ClientSession, 
     ClientTimeout
 )
@@ -33,7 +33,7 @@ from tqdm import tqdm
 from tqdm.asyncio import tqdm_asyncio
 
 from tqdm.std import tqdm as TqdmType
-from typing import (
+from typing import(
     Any, 
     Coroutine, 
     List
@@ -42,7 +42,7 @@ from typing import (
 from config import AIOHTTP_CLIENT
 from parsers.product_details_parser import parse_product_details_next_data_json
 from settings import LOGGER
-from data_types.raw_types import (
+from data_types.raw_types import(
     RawBrand, 
     RawFormat, 
     RawModel, 

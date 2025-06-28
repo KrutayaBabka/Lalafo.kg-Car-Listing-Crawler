@@ -22,7 +22,7 @@ Last Modified: 2025-06-28
 Version: 1.0.0
 """
 
-from typing import (
+from typing import(
     List, 
     Optional, 
     Set
@@ -30,13 +30,13 @@ from typing import (
 from tqdm import tqdm
 
 from settings import LOGGER
-from config import (
+from config import(
     COPY_TO_DETAILS_IF_EMPTY, 
     FIELDS_TO_REMOVE_TO_SIMLIFY
 )
 
 from data_types.cleaned_types import CleanedFormat
-from data_types.raw_types import (
+from data_types.raw_types import(
     RawFormat, 
     RawBrand, 
     RawModel, 

@@ -29,7 +29,7 @@ from aiohttp import ClientSession
 from tqdm import tqdm
 
 from config import AIOHTTP_CLIENT
-from parsers.products_links_parser import (
+from parsers.products_links_parser import(
     parse_amount_of_products_links_next_data_json, 
     parse_products_links_next_data_json
 )
@@ -37,12 +37,12 @@ from settings import LOGGER
 from config import BASE_URL
 
 from tqdm.std import tqdm as TqdmType
-from typing import (
+from typing import(
     Any,
     Coroutine,
     List
 )
-from data_types.raw_types import (
+from data_types.raw_types import(
     RawBrand,
     RawFormat,
     RawModel,

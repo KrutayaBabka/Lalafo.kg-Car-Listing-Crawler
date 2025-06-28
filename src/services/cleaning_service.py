@@ -17,7 +17,7 @@ Usage:
     from services.cleaning_service import clean_parsed_data
 """
 
-from utils.ad_cleaning_utils import (
+from utils.ad_cleaning_utils import(
     simplify_structure, 
     remove_duplicate_products_within_models
 )

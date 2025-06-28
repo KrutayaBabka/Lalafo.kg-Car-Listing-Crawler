@@ -33,8 +33,12 @@ from tqdm.asyncio import tqdm_asyncio
 
 from data_types.raw_types import RawBrand, RawModel
 from settings import LOGGER
-from config import AIOHTTP_CLIENT, REQUESTS_CLIENT
+from config import(
+    AIOHTTP_CLIENT, 
+    REQUESTS_CLIENT
+)
 from parsers.subcategory_parser import parse_subcategories_next_data_json
+
 
 async def fetch_and_parse_subcategories(
     session: ClientSession, 
