@@ -15,6 +15,11 @@ Used in:
 
 Dependencies:
 - tqdm: Used to display progress bars during data processing
+
+Author: Сh.Danil
+Created: 2025-06-26
+Last Modified: 2025-06-28
+Version: 1.0.0
 """
 
 from typing import (
