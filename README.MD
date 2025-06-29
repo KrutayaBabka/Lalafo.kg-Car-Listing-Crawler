@@ -14,7 +14,7 @@ A scalable, asynchronous web scraping pipeline for extracting, cleaning, and sto
 - Configurable and environment-independent setup.
 
 ---
-```markdown
+
 ## 📁 Project Structure
 
 ```
