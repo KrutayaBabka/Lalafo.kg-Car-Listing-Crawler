@@ -1,83 +1,86 @@
+"""
+main.py
+
+This is the entry point of the parsing pipeline. It either loads previously saved raw data
+or triggers the full data extraction pipeline, followed by cleaning and saving the results.
+
+Main Workflow:
+- Load existing raw data from disk (if CLEAN_ONLY is True).
+- Otherwise, fetch data from lalafo.kg using asynchronous/synchronous clients.
+- Clean the parsed raw data by removing or simplifying unnecessary fields.
+- Save raw and cleaned data to JSON and/or compressed ZIP files.
+- Log request statistics if enabled.
+
+Author: Сh.Danil
+Created: 2025-06-29
+Last Modified: 2025-06-29
+Version: 1.0.0
+"""
+
 import asyncio
-import json
-from browser.selenium_client import SeleniumClient
-from config import URL, BASE_URL, logger
-from pathlib import Path
-from parsers.category_parser import parse_categories
-from parsers.subcategory_parser import parse_subcategories
-from tqdm import tqdm
-
-
-def load_existing_data(path: Path) -> list[dict]:
-    if path.exists():
-        logger.info(f"Found existing file: {path}")
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    logger.info("No existing file found. Will create new data.")
-    return []
-
-
-def save_data(path: Path, data: list[dict]):
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
-    logger.info("Data saved to file: %s", path)
+from services.cleaning_service import clean_parsed_data
+from services.raw_data_pipeline import get_raw_data
+from utils.client_utils import log_client_request_counts
+from utils.json_utils import load_existing_data, save_data
+from utils.zip_utils import save_data_as_zip
+from settings import LOGGER
+from config import(
+    AIOHTTP_CLIENT, 
+    REQUESTS_CLIENT
+)
+from config import(
+    SHOULD_SHOW_STATISTICS, 
+    SHOULD_SAVE_RAW_DATA, 
+    SHOULD_SAVE_CLEANED_DATA, 
+    SHOULD_SAVE_CLEANED_DATA_AS_ZIP, 
+    SHOULD_SAVE_RAW_DATA_AS_ZIP, 
+    CLEAN_ONLY
+)
+from config import(
+    RAW_DATA_PATH, 
+    CLEANED_DATA_PATH, 
+    RAW_DATA_ZIP_FILE_NAME, 
+    RAW_DATA_ZIP_PATH, 
+    CLEANED_DATA_ZIP_PATH
+)
+from config import CLEANED_DATA_ZIP_FILE_NAME
+from data_types.cleaned_types import CleanedFormat
+from data_types.raw_types import RawFormat
 
 
 async def main():
-    logger.info("Starting main parsing process")
-    selenium: SeleniumClient = SeleniumClient(headless=True, wait_time=2.0)
+    LOGGER.info("===== Starting Lalafo KG Parsing Pipeline =====")
 
-    data_path = Path("src/data/categories_with_subcategories.json")
-    categories = load_existing_data(data_path)
+    if CLEAN_ONLY:
+        LOGGER.info("CLEAN_ONLY is True — loading existing raw data from file")
+        raw_data: RawFormat = load_existing_data(RAW_DATA_PATH)
+    else:
+        LOGGER.info("CLEAN_ONLY is False — starting full parsing pipeline")
+        raw_data: RawFormat = await get_raw_data()
 
-    try:
-        if not categories:
-            logger.info(f"Fetching main page HTML from {URL}")
-            html = selenium.get_html(URL, wait_for_selector="nav.category-tab-list a.item_category")
+        if SHOULD_SAVE_RAW_DATA:
+            LOGGER.info("Saving raw data is enabled")
+            if SHOULD_SAVE_RAW_DATA_AS_ZIP:
+                LOGGER.info("Saving raw data as ZIP")
+                save_data_as_zip(RAW_DATA_ZIP_PATH, raw_data, RAW_DATA_ZIP_FILE_NAME)
+            save_data(RAW_DATA_PATH, raw_data)
 
-            logger.info("Parsing categories from main page HTML")
-            categories = parse_categories(html, BASE_URL)
-            for cat in categories:
-                cat["subcategories_loaded"] = False
-            save_data(data_path, categories)
-            logger.info(f"Found {len(categories)} categories")
+    LOGGER.info("Cleaning parsed data")
+    cleaned_data: CleanedFormat = clean_parsed_data(raw_data)
 
-        for category in tqdm(categories, desc="Fetching subcategories"):
-            if category.get("subcategories_loaded"):
-                logger.info(f"Skipping already loaded category: {category['brand']}")
-                continue
+    if SHOULD_SAVE_CLEANED_DATA:
+        LOGGER.info("Saving cleaned data is enabled")
+        if SHOULD_SAVE_CLEANED_DATA_AS_ZIP:
+            LOGGER.info("Saving cleaned data as ZIP")
+            save_data_as_zip(CLEANED_DATA_ZIP_PATH, cleaned_data, CLEANED_DATA_ZIP_FILE_NAME)
+        save_data(CLEANED_DATA_PATH, cleaned_data)
 
-            try:
-                logger.info(f"Fetching subcategories for category '{category['brand']}' from {category['brand_url']}")
-                sub_html = selenium.get_html(category["brand_url"], wait_for_selector="nav.category-tab-list a.item_param")
-                subcats = parse_subcategories(sub_html, BASE_URL)
-                category["subcategories"] = subcats
-                category["subcategories_loaded"] = True
-                logger.info(f"Found {len(subcats)} subcategories for category '{category['brand']}'")
-            except Exception as e:
-                logger.error(f"Failed to fetch subcategories for {category['brand']}: {e}", exc_info=True)
-                category["subcategories"] = []
-                category["subcategories_loaded"] = False
-            finally:
-                save_data(data_path, categories) 
+    if not CLEAN_ONLY and SHOULD_SHOW_STATISTICS:
+        LOGGER.info("Logging request statistics")
+        log_client_request_counts(AIOHTTP_CLIENT, REQUESTS_CLIENT)
 
-    except Exception as e:
-        logger.error(f"Error during Selenium processing: {e}", exc_info=True)
-    finally:
-        selenium.close()
-        logger.info("Selenium WebDriver closed")
+    LOGGER.info("===== Parsing Pipeline Finished =====")
 
 
 if __name__ == "__main__":
     asyncio.run(main())
-
-
-
-        # soup = BeautifulSoup(html, "html.parser")
-        # pretty_html = soup.prettify()
-
-        # Path("src/data").mkdir(exist_ok=True)
-        # file_path = Path("src/data") / "page.html"
-        # with open(file_path, "w", encoding="utf-8") as f:
-        #     f.write(pretty_html)
-        # print(f"HTML сохранён в файл: {file_path}")
