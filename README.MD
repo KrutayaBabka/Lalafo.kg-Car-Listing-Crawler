@@ -51,9 +51,9 @@ src/
 │       └── cleaned_reference.json
 │
 └── data_types/                # TypedDict definitions for data models
-├── base_types.py
-├── raw_types.py
-└── cleaned_types.py
+    ├── base_types.py
+    ├── raw_types.py
+    └── cleaned_types.py
 
 ```
 ---
