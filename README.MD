@@ -12,10 +12,8 @@ A scalable, asynchronous web scraping pipeline for extracting, cleaning, and sto
 - JSON + ZIP data export with cleaned and raw dataset variants.
 - Multi-level CLI progress bars using `tqdm`.
 - Configurable and environment-independent setup.
-
----
-
 ```
+---
 ```
 ## 📁 Project Structure
 
