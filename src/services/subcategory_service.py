@@ -9,7 +9,7 @@ Key features:
 - Fallback synchronous retry with requests for categories that failed in async mode.
 - Integrated tqdm progress bars for improved tracking of async and sync subcategory enrichment.
 
-Modules used:
+Dependencies:
 - aiohttp: for asynchronous HTTP requests
 - requests: used internally via REQUESTS_CLIENT fallback
 - tqdm: for CLI progress bars
