@@ -1,0 +1,462 @@
+{
+    "ads_count": 52217,
+    "brands": [
+        {
+            "id": 1591,
+            "name": "Opel",
+            "ads_count": 490,
+            "url": "https://lalafo.kg/kyrgyzstan/avtomobili-s-probegom/prodazha-avtomobiley/opel-avtomobili-s-probegom",
+            "image": "https://img5.lalafo.com/i/category-icon/94/b9/43/ade87a617124d6dc36e71f18de.png",
+            "singular_name": "Opel",
+            "models": [
+                {
+                    "id": 14786,
+                    "name": "Agila",
+                    "url": "https://lalafo.kg/kyrgyzstan/avtomobili-s-probegom/prodazha-avtomobiley/opel-avtomobili-s-probegom/agila",
+                    "product_links": [
+                        {
+                            "background": "#909090",
+                            "city_alias": "bishkek",
+                            "paid_features": [],
+                            "paid_packages": [],
+                            "last_push_up": 1750137601951,
+                            "ad_label": "Продаю автомобиль",
+                            "product_details": {
+                                "id": 73788043,
+                                "old_id": null,
+                                "title": "Opel Agila: 2005 г., 1 л, Механика, Бензин, Хэтчбэк",
+                                "description": "Opel Agila серебристого цвета. Компактный и маневренный автомобиль, удобный для городской езды и парковки в ограниченном пространстве. Имеет передний привод и экономичный двигатель.",
+                                "images": [
+                                    {
+                                        "id": 840926031,
+                                        "is_main": true,
+                                        "thumbnail_url": "https://img5.lalafo.com/i/posters/api/b6/8e/dc/opel-agila-id-73788043-840926031.jpeg",
+                                        "thumbnail_webp_url": "https://img5.lalafo.com/i/posters/api_webp/b6/8e/dc/opel-agila-id-73788043-840926031.webp",
+                                        "original_url": "https://img5.lalafo.com/i/posters/original/b6/8e/dc/opel-agila-id-73788043-840926031.jpeg",
+                                        "original_webp_url": "https://img5.lalafo.com/i/posters/original_webp/b6/8e/dc/opel-agila-id-73788043-840926031.webp",
+                                        "width": 370,
+                                        "height": 493,
+                                        "is_cv_image": false,
+                                        "p_hash": "12942972349005266944"
+                                    },
+                                    {
+                                        "id": 840926670,
+                                        "is_main": false,
+                                        "thumbnail_url": "https://img5.lalafo.com/i/posters/api/b4/2a/fd/opel-agila-id-73788043-840926670.jpeg",
+                                        "thumbnail_webp_url": "https://img5.lalafo.com/i/posters/api_webp/b4/2a/fd/opel-agila-id-73788043-840926670.webp",
+                                        "original_url": "https://img5.lalafo.com/i/posters/original/b4/2a/fd/opel-agila-id-73788043-840926670.jpeg",
+                                        "original_webp_url": "https://img5.lalafo.com/i/posters/original_webp/b4/2a/fd/opel-agila-id-73788043-840926670.webp",
+                                        "width": 370,
+                                        "height": 278,
+                                        "is_cv_image": false,
+                                        "p_hash": "18358244157660104704"
+                                    },
+                                    {
+                                        "id": 840926669,
+                                        "is_main": false,
+                                        "thumbnail_url": "https://img5.lalafo.com/i/posters/api/6e/89/26/opel-agila-id-73788043-840926669.jpeg",
+                                        "thumbnail_webp_url": "https://img5.lalafo.com/i/posters/api_webp/6e/89/26/opel-agila-id-73788043-840926669.webp",
+                                        "original_url": "https://img5.lalafo.com/i/posters/original/6e/89/26/opel-agila-id-73788043-840926669.jpeg",
+                                        "original_webp_url": "https://img5.lalafo.com/i/posters/original_webp/6e/89/26/opel-agila-id-73788043-840926669.webp",
+                                        "width": 370,
+                                        "height": 493,
+                                        "is_cv_image": false,
+                                        "p_hash": "14468286550052739072"
+                                    },
+                                    {
+                                        "id": 840926668,
+                                        "is_main": false,
+                                        "thumbnail_url": "https://img5.lalafo.com/i/posters/api/19/5a/8f/opel-agila-id-73788043-840926668.jpeg",
+                                        "thumbnail_webp_url": "https://img5.lalafo.com/i/posters/api_webp/19/5a/8f/opel-agila-id-73788043-840926668.webp",
+                                        "original_url": "https://img5.lalafo.com/i/posters/original/19/5a/8f/opel-agila-id-73788043-840926668.jpeg",
+                                        "original_webp_url": "https://img5.lalafo.com/i/posters/original_webp/19/5a/8f/opel-agila-id-73788043-840926668.webp",
+                                        "width": 370,
+                                        "height": 278,
+                                        "is_cv_image": false,
+                                        "p_hash": "11499806282416510976"
+                                    },
+                                    {
+                                        "id": 840926663,
+                                        "is_main": false,
+                                        "thumbnail_url": "https://img5.lalafo.com/i/posters/api/04/4f/1b/opel-agila-id-73788043-840926663.jpeg",
+                                        "thumbnail_webp_url": "https://img5.lalafo.com/i/posters/api_webp/04/4f/1b/opel-agila-id-73788043-840926663.webp",
+                                        "original_url": "https://img5.lalafo.com/i/posters/original/04/4f/1b/opel-agila-id-73788043-840926663.jpeg",
+                                        "original_webp_url": "https://img5.lalafo.com/i/posters/original_webp/04/4f/1b/opel-agila-id-73788043-840926663.webp",
+                                        "width": 370,
+                                        "height": 278,
+                                        "is_cv_image": false,
+                                        "p_hash": "12877607119025061888"
+                                    },
+                                    {
+                                        "id": 840926667,
+                                        "is_main": false,
+                                        "thumbnail_url": "https://img5.lalafo.com/i/posters/api/e6/b6/63/opel-agila-id-73788043-840926667.jpeg",
+                                        "thumbnail_webp_url": "https://img5.lalafo.com/i/posters/api_webp/e6/b6/63/opel-agila-id-73788043-840926667.webp",
+                                        "original_url": "https://img5.lalafo.com/i/posters/original/e6/b6/63/opel-agila-id-73788043-840926667.jpeg",
+                                        "original_webp_url": "https://img5.lalafo.com/i/posters/original_webp/e6/b6/63/opel-agila-id-73788043-840926667.webp",
+                                        "width": 370,
+                                        "height": 493,
+                                        "is_cv_image": false,
+                                        "p_hash": "17041823225221550080"
+                                    },
+                                    {
+                                        "id": 840926671,
+                                        "is_main": false,
+                                        "thumbnail_url": "https://img5.lalafo.com/i/posters/api/0b/ec/70/opel-agila-id-73788043-840926671.jpeg",
+                                        "thumbnail_webp_url": "https://img5.lalafo.com/i/posters/api_webp/0b/ec/70/opel-agila-id-73788043-840926671.webp",
+                                        "original_url": "https://img5.lalafo.com/i/posters/original/0b/ec/70/opel-agila-id-73788043-840926671.jpeg",
+                                        "original_webp_url": "https://img5.lalafo.com/i/posters/original_webp/0b/ec/70/opel-agila-id-73788043-840926671.webp",
+                                        "width": 370,
+                                        "height": 493,
+                                        "is_cv_image": false,
+                                        "p_hash": "17300800042345863168"
+                                    }
+                                ],
+                                "params": [
+                                    {
+                                        "id": 49,
+                                        "name": "Модель",
+                                        "value": "Agila",
+                                        "value_id": 14786,
+                                        "links": [
+                                            {
+                                                "is_bottom": false,
+                                                "is_popular": false,
+                                                "value_id": 14786,
+                                                "value": "Agila",
+                                                "url": "/bishkek/avtomobili-s-probegom/prodazha-avtomobiley/opel-avtomobili-s-probegom/agila"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": 62,
+                                        "name": "Год",
+                                        "value": "2005",
+                                        "value_id": 1430,
+                                        "links": [
+                                            {
+                                                "is_bottom": false,
+                                                "is_popular": false,
+                                                "value_id": 1430,
+                                                "value": "2005",
+                                                "url": null
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": 65,
+                                        "name": "Топливо",
+                                        "value": "Бензин",
+                                        "value_id": 7070,
+                                        "links": [
+                                            {
+                                                "is_bottom": false,
+                                                "is_popular": false,
+                                                "value_id": 7070,
+                                                "value": "Бензин",
+                                                "url": "/bishkek/avtomobili-s-probegom/prodazha-avtomobiley/opel-avtomobili-s-probegom/petrol"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": 63,
+                                        "name": "Кузов",
+                                        "value": "Хэтчбэк",
+                                        "value_id": 4628,
+                                        "links": [
+                                            {
+                                                "is_bottom": false,
+                                                "is_popular": false,
+                                                "value_id": 4628,
+                                                "value": "Хэтчбэк",
+                                                "url": "/bishkek/avtomobili-s-probegom/prodazha-avtomobiley/opel-avtomobili-s-probegom/hatchback"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": 64,
+                                        "name": "Коробка передач",
+                                        "value": "Механика",
+                                        "value_id": 2779,
+                                        "links": [
+                                            {
+                                                "is_bottom": false,
+                                                "is_popular": false,
+                                                "value_id": 2779,
+                                                "value": "Механика",
+                                                "url": "/bishkek/avtomobili-s-probegom/prodazha-avtomobiley/opel-avtomobili-s-probegom/manual"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": 105,
+                                        "name": "Цвет",
+                                        "value": "Серебристый",
+                                        "value_id": 23108,
+                                        "links": [
+                                            {
+                                                "is_bottom": false,
+                                                "is_popular": false,
+                                                "value_id": 23108,
+                                                "value": "Серебристый",
+                                                "url": "/bishkek/avtomobili-s-probegom/prodazha-avtomobiley/opel-avtomobili-s-probegom/p-23108-silver"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": 66,
+                                        "name": "Объем двигателя",
+                                        "value": "1",
+                                        "value_id": 23531,
+                                        "links": [
+                                            {
+                                                "is_bottom": false,
+                                                "is_popular": false,
+                                                "value_id": 23531,
+                                                "value": 1,
+                                                "url": null
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": 106,
+                                        "name": "Руль",
+                                        "value": "Слева",
+                                        "value_id": 16500,
+                                        "links": [
+                                            {
+                                                "is_bottom": false,
+                                                "is_popular": false,
+                                                "value_id": 16500,
+                                                "value": "Слева",
+                                                "url": "/bishkek/avtomobili-s-probegom/prodazha-avtomobiley/opel-avtomobili-s-probegom/p-16500-left"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": 244,
+                                        "name": "Привод",
+                                        "value": "Передний",
+                                        "value_id": 18563,
+                                        "links": [
+                                            {
+                                                "is_bottom": false,
+                                                "is_popular": false,
+                                                "value_id": 18563,
+                                                "value": "Передний",
+                                                "url": "/bishkek/avtomobili-s-probegom/prodazha-avtomobiley/opel-avtomobili-s-probegom/front-wheel"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": 1157,
+                                        "name": "Растаможка",
+                                        "value": "Растаможен",
+                                        "value_id": 31947,
+                                        "links": [
+                                            {
+                                                "is_bottom": false,
+                                                "is_popular": true,
+                                                "value_id": 31947,
+                                                "value": "Растаможен",
+                                                "url": "/bishkek/avtomobili-s-probegom/prodazha-avtomobiley/opel-avtomobili-s-probegom/customs-cleared"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": 1156,
+                                        "name": "VIN код",
+                                        "value": "с VIN кодом",
+                                        "value_id": 31945,
+                                        "links": [
+                                            {
+                                                "is_bottom": false,
+                                                "is_popular": true,
+                                                "value_id": 31945,
+                                                "value": "с VIN кодом",
+                                                "url": "/bishkek/avtomobili-s-probegom/prodazha-avtomobiley/opel-avtomobili-s-probegom/with-vin-code"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": 1155,
+                                        "name": "Техническое состояние",
+                                        "value": "Хорошее",
+                                        "value_id": 31940,
+                                        "links": [
+                                            {
+                                                "is_bottom": false,
+                                                "is_popular": false,
+                                                "value_id": 31940,
+                                                "value": "Хорошее",
+                                                "url": "/bishkek/avtomobili-s-probegom/prodazha-avtomobiley/opel-avtomobili-s-probegom/good-condition"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": 242,
+                                        "name": "Наличие",
+                                        "value": "В наличии",
+                                        "value_id": 18559,
+                                        "links": [
+                                            {
+                                                "is_bottom": false,
+                                                "is_popular": false,
+                                                "value_id": 18559,
+                                                "value": "В наличии",
+                                                "url": "/bishkek/avtomobili-s-probegom/prodazha-avtomobiley/opel-avtomobili-s-probegom/in-stock"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": 1154,
+                                        "name": "Расчет",
+                                        "value": "Оплата наличными",
+                                        "value_id": 30851,
+                                        "links": [
+                                            {
+                                                "is_bottom": false,
+                                                "is_popular": false,
+                                                "value_id": 30851,
+                                                "value": "Оплата наличными",
+                                                "url": "/bishkek/avtomobili-s-probegom/prodazha-avtomobiley/opel-avtomobili-s-probegom/cash-payment"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "is_negotiable": false,
+                                "is_vip": false,
+                                "is_premium": false,
+                                "is_hide_house_number": false,
+                                "is_select": false,
+                                "is_favorite": false,
+                                "currency": "KGS",
+                                "symbol": "COM",
+                                "views": 113,
+                                "impressions": 7463,
+                                "favorite_count": 1,
+                                "callers_count": 1,
+                                "writers_count": 0,
+                                "device_id": null,
+                                "category_id": 1591,
+                                "city_id": 103184,
+                                "city": "Бишкек",
+                                "user_id": 14280322,
+                                "user_ids": [
+                                    14280322
+                                ],
+                                "user": {
+                                    "id": 14280322,
+                                    "username": "kj92j67v7r",
+                                    "avatar": null,
+                                    "pro": false,
+                                    "user_hash": "57D111D1-8347-46B7-AB96-A04D01F69DD0",
+                                    "response_rate": 100,
+                                    "response_time": 32001,
+                                    "is_deleted": false,
+                                    "is_banned": false,
+                                    "hidden_delete": false,
+                                    "response_info": "Отвечает на 100% сообщений\nОбычно в течение дня",
+                                    "business": {
+                                        "business": false,
+                                        "features": {
+                                            "badge": null,
+                                            "branding": null,
+                                            "company_name": null,
+                                            "contact_email": null,
+                                            "contact_phones": null,
+                                            "contact_skype": null,
+                                            "cover": null,
+                                            "dedicated_url": {
+                                                "model": {
+                                                    "path": ""
+                                                }
+                                            },
+                                            "description": null,
+                                            "extended_info_in_ad": null,
+                                            "label": null,
+                                            "location": null,
+                                            "logo": null,
+                                            "no_competitors_ads": null,
+                                            "personal_manager": null,
+                                            "photo_gallery": null,
+                                            "site_link": null,
+                                            "social_links": null,
+                                            "statistics": null,
+                                            "dynamic_wallet_balance": null,
+                                            "wallet_balance": null,
+                                            "dynamic_ppv_discount": null,
+                                            "ppv_discount": null,
+                                            "work_time": null,
+                                            "dynamic_free_ads_limit": null,
+                                            "free_ads_limit": null,
+                                            "greeting_message": null,
+                                            "wallet_cashback": null
+                                        }
+                                    },
+                                    "online": false,
+                                    "last_visit_time": 1750445915,
+                                    "user_id": 14280322
+                                },
+                                "origin_user_id": 14280322,
+                                "country_id": 12,
+                                "type": null,
+                                "price": 250000,
+                                "old_price": null,
+                                "lat": 42.8746212,
+                                "lng": 74.5697617,
+                                "username": "kj92j67v7r",
+                                "mobile": "+996500230306",
+                                "email": "",
+                                "hide_phone": false,
+                                "hide_chat": null,
+                                "status_id": 2,
+                                "can_free_push": false,
+                                "features": [],
+                                "products": [],
+                                "rejected_reason": null,
+                                "url": "https://lalafo.kg/bishkek/ads/opel-agila-id-73788043",
+                                "created_time": 1750137488,
+                                "updated_time": 1750483826,
+                                "score_order": 1750137601951,
+                                "tracking_info": [
+                                    {
+                                        "name": "ad_type",
+                                        "value": 1
+                                    },
+                                    {
+                                        "name": "feed_id",
+                                        "value": 6500
+                                    },
+                                    {
+                                        "name": "params",
+                                        "value": "{\"49\":14786,\"62\":1430,\"65\":7070,\"63\":4628,\"64\":2779,\"105\":23108,\"66\":23531,\"106\":16500,\"244\":18563,\"1157\":31947,\"1156\":31945,\"1155\":31940,\"242\":18559,\"1154\":30851}"
+                                    }
+                                ],
+                                "is_freedom": false,
+                                "response_type": 0,
+                                "campaign_show": false,
+                                "is_ppv": false,
+                                "price_type": 1,
+                                "is_private_ad": false,
+                                "national_price": null,
+                                "national_old_price": null,
+                                "is_identity": false,
+                                "page_visibility_info": {
+                                    "is_show_page": false
+                                },
+                                "available_campaign_types": [
+                                    "adViews",
+                                    "adViewsDaily"
+                                ],
+                                "campaign": [],
+                                "is_paid_posting": false,
+                                "sourcePage": null
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
