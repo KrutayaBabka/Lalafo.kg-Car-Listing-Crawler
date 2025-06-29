@@ -14,49 +14,50 @@ A scalable, asynchronous web scraping pipeline for extracting, cleaning, and sto
 - Configurable and environment-independent setup.
 
 ---
-
+```markdown
 ## 📁 Project Structure
 
 ```
 
-Lalafo.kg-Car-Listing-Crawler/
-├── .gitignore
-├── requirements.txt
-├── README.md
-├── venv/ (virtual environment — excluded from version control)
-└── src/
-├── main.py
-├── config.py
-├── settings.py
-├── data/
-│   └── references/
-│       ├── raw\_reference.json        # Example of raw data structure
-│       └── cleaned\_reference.json    # Example of cleaned data structure
-├── browser/
-│   ├── aiohttp\_client.py
-│   └── requests\_client.py
-├── data\_types/
-│   ├── base\_types.py
-│   ├── raw\_types.py
-│   └── cleaned\_types.py
-├── parsers/
+src/
+│
+├── main.py                    # Entry point of the parsing pipeline
+├── config.py                  # Configuration constants, URLs, flags
+├── settings.py                # Logger setup and HTTP headers
+│
+├── services/                  # Core async services for crawling and processing
+│   ├── raw\_data\_pipeline.py   # Orchestrates full raw data parsing workflow
+│   ├── raw\_ads\_service.py     # Fetches raw ads concurrently
+│   ├── ad\_details\_service.py  # Fetches and enriches product details async
+│   ├── subcategory\_service.py # Handles subcategory (model) enrichment
+│   └── cleaning\_service.py    # Cleans and normalizes raw parsed data
+│
+├── utils/                     # Helper utilities for JSON, ZIP, HTTP logging
+│   ├── client\_utils.py        # Request counts logging helpers
+│   ├── json\_utils.py          # JSON read/write helpers
+│   └── zip\_utils.py           # Save data as compressed ZIP archives
+│
+├── parsers/                   # HTML and JSON extraction modules
 │   ├── category\_parser.py
 │   ├── subcategory\_parser.py
 │   ├── product\_details\_parser.py
 │   └── products\_links\_parser.py
-├── services/
-│   ├── raw\_data\_pipeline.py
-│   ├── raw\_ads\_service.py
-│   ├── ad\_details\_service.py
-│   ├── subcategory\_service.py
-│   └── cleaning\_service.py
-└── utils/
-├── json\_utils.py
-├── zip\_utils.py
-└── client\_utils.py
+│
+├── browser/                   # HTTP client wrappers (async & sync)
+│   ├── aiohttp\_client.py
+│   └── requests\_client.py
+│
+├── data/                      # Sample reference data (raw and cleaned)
+│   └── references/
+│       ├── raw\_reference.json
+│       └── cleaned\_reference.json
+│
+└── data\_types/                # TypedDict definitions for data models
+├── base\_types.py
+├── raw\_types.py
+└── cleaned\_types.py
 
-````
-
+```
 ---
 
 ## 🛠 Setup
