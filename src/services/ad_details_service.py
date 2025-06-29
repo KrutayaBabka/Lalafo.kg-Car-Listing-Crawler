@@ -1,5 +1,5 @@
 """
-ad_details_service.py
+src/services/ad_details_service.py
 
 Asynchronous service module to fetch and enrich detailed product data
 from raw advertisement links using aiohttp for concurrent HTTP requests.

@@ -1,5 +1,5 @@
 """
-base_types.py
+src/data_types/base_types.py
 
 This module defines the foundational TypedDict data structures used for representing
 various entities and attributes related to products, users, brands, models, and related metadata.

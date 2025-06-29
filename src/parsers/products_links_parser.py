@@ -1,5 +1,5 @@
 """
-products_links_parser.py
+src/parsers/products_links_parser.py
 
 This module is responsible for extracting product link data and the total number of
 pagination pages from the embedded __NEXT_DATA__ JSON structure in lalafo.kg HTML pages.

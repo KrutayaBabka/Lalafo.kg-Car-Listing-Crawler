@@ -1,5 +1,5 @@
 """
-product_details_parser.py
+src/parsers/product_details_parser.py
 
 This module is responsible for extracting detailed product information
 from the embedded __NEXT_DATA__ JSON structure on lalafo.kg product pages.

@@ -1,5 +1,5 @@
 """
-json_utils.py
+src/utils/json_utils.py
 
 This module provides utility functions for reading and writing JSON data
 used throughout the data pipeline. It handles:

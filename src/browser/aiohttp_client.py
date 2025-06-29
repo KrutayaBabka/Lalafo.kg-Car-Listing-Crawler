@@ -1,5 +1,5 @@
 """
-aiohttp_client.py
+src/browser/aiohttp_client.py
 
 This module defines an asynchronous HTTP client using aiohttp for fetching HTML content
 with configurable retry logic, timeout, and optional delay between requests.

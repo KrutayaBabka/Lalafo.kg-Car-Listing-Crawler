@@ -1,5 +1,5 @@
 """
-main.py
+src/main.py
 
 This is the entry point of the parsing pipeline. It either loads previously saved raw data
 or triggers the full data extraction pipeline, followed by cleaning and saving the results.

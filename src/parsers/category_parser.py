@@ -1,5 +1,5 @@
 """
-category_parser.py
+src/parsers/category_parser.py
 
 This module is responsible for parsing the root category page HTML and extracting
 brand information from the embedded __NEXT_DATA__ JSON.

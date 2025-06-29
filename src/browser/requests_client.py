@@ -1,5 +1,5 @@
 """
-requests_client.py
+src/browser/requests_client.py
 
 This module provides a simple HTTP client wrapper around the 'requests' library,
 allowing configurable retries, timeouts, and delay between requests.

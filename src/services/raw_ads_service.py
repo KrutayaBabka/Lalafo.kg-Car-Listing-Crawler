@@ -1,5 +1,5 @@
 """
-raw_ads_service.py
+src/services/raw_ads_service.py
 
 Asynchronous service module for fetching raw advertisement links data
 from paginated sources concurrently using aiohttp.

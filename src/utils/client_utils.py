@@ -1,5 +1,5 @@
 """
-client_utils.py
+src/utils/client_utils.py
 
 This module provides utility functions for logging request counts made by 
 the AiohttpClient and RequestsClient classes during a parsing session.

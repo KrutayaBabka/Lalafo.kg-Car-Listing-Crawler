@@ -1,5 +1,5 @@
 """
-cleaned_types.py
+src/data_types/cleaned_types.py
 
 This module defines cleaned TypedDict data structures representing processed and
 normalized data after cleaning and simplifying the raw parsed data.

@@ -1,5 +1,5 @@
 """
-config.py
+src/config.py
 
 This module contains configuration constants for the web scraping project,
 including URLs, HTTP client instances, file paths, flags, and data processing fields.

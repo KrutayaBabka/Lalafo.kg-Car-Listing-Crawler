@@ -1,5 +1,5 @@
 """
-zip_utils.py
+src/utils/zip_utils.py
 
 This module provides a utility function to compress JSON-serializable data into a ZIP file.
 

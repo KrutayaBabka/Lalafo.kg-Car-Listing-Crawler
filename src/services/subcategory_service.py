@@ -1,5 +1,5 @@
 """
-subcategory_service.py
+src/services/subcategory_service.py
 
 This module handles the enrichment of category data with subcategory (model) information
 by parsing subcategories from web pages.

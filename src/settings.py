@@ -1,5 +1,5 @@
 """
-settings.py
+src/settings.py
 
 This module sets up logging configuration and HTTP headers
 used across the scraping project.

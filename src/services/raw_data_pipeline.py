@@ -1,5 +1,5 @@
 """
-raw_data_pipeline.py
+src/services/raw_data_pipeline.py
 
 This module orchestrates the complete raw data parsing pipeline for lalafo.kg,
 starting from the main page, through categories, subcategories, raw ads, and product details.

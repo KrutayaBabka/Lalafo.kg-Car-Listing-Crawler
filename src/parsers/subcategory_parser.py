@@ -1,5 +1,5 @@
 """
-subcategory_parser.py
+src/parsers/subcategory_parser.py
 
 This module extracts subcategory (model) information from the embedded JSON
 within the `__NEXT_DATA__` script tag on a brand category page.

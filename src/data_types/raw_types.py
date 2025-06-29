@@ -1,5 +1,5 @@
 """
-raw_types.py
+src/data_types/raw_types.py
 
 This module defines raw (unprocessed) TypedDict data structures that extend base types
 to represent the raw data formats parsed directly from the source JSON or HTML.
