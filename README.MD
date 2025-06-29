@@ -17,7 +17,6 @@ A scalable, asynchronous web scraping pipeline for extracting, cleaning, and sto
 
 ## 📁 Project Structure
 
-```
 src/
 │
 ├── main.py                    # Entry point
