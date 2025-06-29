@@ -26,36 +26,36 @@ src/
 ├── settings.py                # Logger setup and HTTP headers
 │
 ├── services/                  # Core async services for crawling and processing
-│   ├── raw\_data\_pipeline.py   # Orchestrates full raw data parsing workflow
-│   ├── raw\_ads\_service.py     # Fetches raw ads concurrently
-│   ├── ad\_details\_service.py  # Fetches and enriches product details async
-│   ├── subcategory\_service.py # Handles subcategory (model) enrichment
-│   └── cleaning\_service.py    # Cleans and normalizes raw parsed data
+│   ├── raw_data_pipeline.py   # Orchestrates full raw data parsing workflow
+│   ├── raw_ads_service.py     # Fetches raw ads concurrently
+│   ├── ad_details_service.py  # Fetches and enriches product details async
+│   ├── subcategory_service.py # Handles subcategory (model) enrichment
+│   └── cleaning_service.py    # Cleans and normalizes raw parsed data
 │
 ├── utils/                     # Helper utilities for JSON, ZIP, HTTP logging
-│   ├── client\_utils.py        # Request counts logging helpers
-│   ├── json\_utils.py          # JSON read/write helpers
-│   └── zip\_utils.py           # Save data as compressed ZIP archives
+│   ├── client_utils.py        # Request counts logging helpers
+│   ├── json_utils.py          # JSON read/write helpers
+│   └── zip_utils.py           # Save data as compressed ZIP archives
 │
 ├── parsers/                   # HTML and JSON extraction modules
-│   ├── category\_parser.py
-│   ├── subcategory\_parser.py
-│   ├── product\_details\_parser.py
-│   └── products\_links\_parser.py
+│   ├── category_parser.py
+│   ├── subcategory_parser.py
+│   ├── product_details_parser.py
+│   └── products_links_parser.py
 │
 ├── browser/                   # HTTP client wrappers (async & sync)
-│   ├── aiohttp\_client.py
-│   └── requests\_client.py
+│   ├── aiohttp_client.py
+│   └── requests_client.py
 │
 ├── data/                      # Sample reference data (raw and cleaned)
 │   └── references/
-│       ├── raw\_reference.json
-│       └── cleaned\_reference.json
+│       ├── raw_reference.json
+│       └── cleaned_reference.json
 │
-└── data\_types/                # TypedDict definitions for data models
-├── base\_types.py
-├── raw\_types.py
-└── cleaned\_types.py
+└── data_types/                # TypedDict definitions for data models
+├── base_types.py
+├── raw_types.py
+└── cleaned_types.py
 
 ```
 ---
