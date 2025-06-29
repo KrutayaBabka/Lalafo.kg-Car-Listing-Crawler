@@ -1,20 +1,20 @@
 """
 products_links_parser.py
 
-This module is responsible for extracting product link data and page count
-from the embedded __NEXT_DATA__ JSON structure found in HTML pages of lalafo.kg.
+This module is responsible for extracting product link data and the total number of
+pagination pages from the embedded __NEXT_DATA__ JSON structure in lalafo.kg HTML pages.
 
 Main Functions:
-- parse_products_links_next_data_json: Extracts product listings with absolute URLs.
-- parse_amount_of_products_links_next_data_json: Retrieves the number of pages available for pagination.
+- parse_products_links_next_data_json: Extracts list of product dictionaries with absolute URLs.
+- parse_amount_of_products_links_next_data_json: Determines how many pages of products exist.
 
 Dependencies:
-- BeautifulSoup: Parses the HTML document to locate embedded JSON in <script> tag.
+- BeautifulSoup: Used for locating and parsing embedded JSON in <script> tags.
 
 Author: Сh.Danil
 Created: 2025-06-27
 Last Modified: 2025-06-29
-Version: 1.0.0
+Version: 1.0.1
 """
 
 import json
@@ -34,7 +34,7 @@ from data_types.raw_types import(
 )
 
 
-def parse_products_links_next_data_json(html: str, base_url: str) -> RawFormat:
+def parse_products_links_next_data_json(html: str, base_url: str) -> List[RawProduct]:
     """
     Parses the HTML content and extracts product link data from the embedded __NEXT_DATA__ JSON.
 
@@ -43,10 +43,10 @@ def parse_products_links_next_data_json(html: str, base_url: str) -> RawFormat:
         base_url (str): The base URL to convert relative product URLs to absolute URLs.
 
     Returns:
-        RawFormat: A dictionary containing a single key "product_links" with a list of product dictionaries.
+        List[RawProduct]: A list of product dictionaries with enriched absolute "url" fields.
 
     Raises:
-        ValueError: If the script tag with embedded JSON is not found or the structure is invalid.
+        ValueError: If the expected script tag or JSON structure is missing or malformed.
     """
     LOGGER.info("Extracting selected model products links data from __NEXT_DATA__")
 
