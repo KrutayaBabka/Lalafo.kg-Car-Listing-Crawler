@@ -18,45 +18,36 @@ A scalable, asynchronous web scraping pipeline for extracting, cleaning, and sto
 ## 📁 Project Structure
 
 ```
-
 src/
 │
-├── main.py                    # Entry point of the parsing pipeline
-├── config.py                  # Configuration constants, URLs, flags
-├── settings.py                # Logger setup and HTTP headers
+├── main.py                    # Entry point
+├── config.py                  # Global constants & logging
 │
-├── services/                  # Core async services for crawling and processing
-│   ├── raw_data_pipeline.py   # Orchestrates full raw data parsing workflow
-│   ├── raw_ads_service.py     # Fetches raw ads concurrently
-│   ├── ad_details_service.py  # Fetches and enriches product details async
-│   ├── subcategory_service.py # Handles subcategory (model) enrichment
-│   └── cleaning_service.py    # Cleans and normalizes raw parsed data
+├── services/
+│   └── crawl_service.py       # Orchestrates crawling & data saving
 │
-├── utils/                     # Helper utilities for JSON, ZIP, HTTP logging
-│   ├── client_utils.py        # Request counts logging helpers
-│   ├── json_utils.py          # JSON read/write helpers
-│   └── zip_utils.py           # Save data as compressed ZIP archives
+├── utils/
+│   ├── __init__.py            # Re-exports key helpers
+│   ├── fetch.py               # Synchronous HTML fetcher
+│   ├── pagination.py          # Page-count & URL builder
+│   ├── parse_listings.py      # Extracts links from listing cards
+│   └── parse_details/         # Fine-grained extractors
+│       ├── __init__.py
+│       ├── average_price.py
+│       ├── breadcrumbs.py
+│       ├── configuration.py
+│       ├── contact.py
+│       ├── credit.py
+│       ├── head_info.py
+│       ├── history.py
+│       ├── images.py
+│       ├── seller_comment.py
+│       ├── specs.py
+│       └── vin.py
 │
-├── parsers/                   # HTML and JSON extraction modules
-│   ├── category_parser.py
-│   ├── subcategory_parser.py
-│   ├── product_details_parser.py
-│   └── products_links_parser.py
-│
-├── browser/                   # HTTP client wrappers (async & sync)
-│   ├── aiohttp_client.py
-│   └── requests_client.py
-│
-├── data/                      # Sample reference data (raw and cleaned)
-│   └── references/
-│       ├── raw_reference.json
-│       └── cleaned_reference.json
-│
-└── data_types/                # TypedDict definitions for data models
-├── base_types.py
-├── raw_types.py
-└── cleaned_types.py
-
+└── data/
+    └── reference_data/        # Sample HTML pages & expected JSON output
+                               # Handy for tests / debugging
 ```
 ---
 
