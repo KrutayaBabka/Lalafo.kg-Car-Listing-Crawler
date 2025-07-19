@@ -26,6 +26,7 @@ Version: 1.0.0
 """
 
 
+import asyncio
 from typing import Any, Coroutine, List
 from aiohttp import ClientSession
 from tqdm import tqdm
@@ -89,27 +90,13 @@ async def fetch_all_subcategories(
     brands: List[RawBrand],
     base_url: str
 ) -> List[RawBrand]:
-    """
-    Asynchronously fetch subcategories for all provided brands.
-
-    Args:
-        brands (List[RawBrand]): List of brand dictionaries to enrich.
-        base_url (str): Base URL context used during parsing.
-
-    Returns:
-        List[RawBrand]: List of updated brand dictionaries with subcategories.
-    """
     async with ClientSession() as session:
-        tasks: List[Coroutine[Any, Any, RawBrand]] = [
+        tasks = [
             fetch_and_parse_subcategories(session, category, base_url)
             for category in brands
         ]
-
-        updated_brands: List[RawBrand] = []
-        for coro in tqdm_asyncio.as_completed(tasks, desc="Fetching subcategories (async)", total=len(tasks)):
-            updated_category: RawBrand = await coro
-            updated_brands.append(updated_category)
-
+        # Здесь результаты будут именно в порядке brands[0], brands[1], ...
+        updated_brands = await asyncio.gather(*tasks)
         LOGGER.info(f"Fetched {len(updated_brands)} categories with subcategories")
         return updated_brands
     

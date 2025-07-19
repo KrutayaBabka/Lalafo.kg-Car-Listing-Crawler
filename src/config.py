@@ -31,8 +31,8 @@ URL: str = "https://lalafo.kg/kyrgyzstan/avtomobili-s-probegom"
 BASE_URL: str = "https://lalafo.kg"
 
 # HTTP clients
-AIOHTTP_CLIENT: AiohttpClient = AiohttpClient(delay_between_requests=0, retries=10, timeout=15)
-REQUESTS_CLIENT: RequestsClient = RequestsClient(delay_between_requests=0, timeout=15, retries=10)
+AIOHTTP_CLIENT: AiohttpClient = AiohttpClient(delay_between_requests=0.0, retries=10, timeout=15, max_concurrent_requests=10)
+REQUESTS_CLIENT: RequestsClient = RequestsClient(delay_between_requests=0.5, timeout=15, retries=10)
 
 # Sorting
 SORT_METHOD: str = "?sort_by=newest" 
@@ -54,7 +54,7 @@ SHOULD_SAVE_CLEANED_DATA: bool = True
 SHOULD_SAVE_RAW_DATA_AS_ZIP: bool = True
 SHOULD_SAVE_CLEANED_DATA_AS_ZIP: bool = True
 SHOULD_SHOW_STATISTICS: bool = True
-CLEAN_ONLY: bool = True
+CLEAN_ONLY: bool = False
 SHOULD_USE_TEMP_DATA: bool = True
 
 # Fields and data processing

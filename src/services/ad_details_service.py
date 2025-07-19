@@ -84,86 +84,57 @@ async def fetch_product_details(
     return product_link
 
 
-async def enrich_all_product_details_async(
-    raw_data: RawFormat,
-    base_url: str
-) -> None:
-    """
-    Enrich all products within all brands and models in raw_data
-    by fetching detailed product information asynchronously.
-
-    This function uses nested tqdm progress bars at three levels:
-    - Brands (position=0)
-    - Models within each brand (position=1)
-    - Products within each model or brand (position=2 or 1 if no models)
-
-    Args:
-        raw_data (RawFormat): Parsed raw data containing brands, models, and products.
-        base_url (str): Base URL for parsing and logging purposes.
-
-    Returns:
-        None. Modifies raw_data in-place by adding detailed product info.
-    """
+async def enrich_all_product_details_async(raw_data: RawFormat, base_url: str) -> None:
     async with ClientSession(timeout=ClientTimeout(total=15)) as session:
         brands: List[RawBrand] = raw_data["brands"]
         brand_bar: TqdmType = tqdm(brands, desc="Brands", position=0)
 
         for brand in brand_bar:
-            brand: RawBrand
             models: List[RawModel] = brand.get("models", [])
             brand_bar.set_description(f"Brand: {brand['name']} ({len(models)} models)")
 
             if models:
                 model_bar: TqdmType = tqdm(models, desc="Models", position=1, leave=False)
-
                 for model in model_bar:
                     product_links: List[RawProduct] = model.get("product_links", [])
                     model_bar.set_description(f"Model: {model['name']} ({len(product_links)} links)")
 
                     if product_links:
+                        tasks = []
+                        for product_link in product_links:
+                            task = asyncio.create_task(fetch_product_details(session, product_link, base_url))
+                            tasks.append((task, product_link))
+
                         product_bar: TqdmType = tqdm(total=len(product_links), desc="Products", position=2, leave=False)
-
-                        tasks: List[Coroutine[Any, Any, RawProductDetails]] = [
-                            fetch_product_details(session, product_link, base_url)
-                            for product_link in product_links
-                        ]
-
-                        results: List[RawProductDetails] = []
-                        for coro in asyncio.as_completed(tasks):
-                            result: RawProductDetails  = await coro
-                            results.append(result)
+                        for coro in asyncio.as_completed([t for t, _ in tasks]):
+                            result = await coro
+                            for t, product_link in tasks:
+                                if t == coro:
+                                    product_link.update(result)
+                                    break
                             product_bar.update(1)
-
-                        for i, product_link in enumerate(product_links):
-                            product_link.update(results[i])
-
                         product_bar.close()
                     else:
                         LOGGER.warning(f"No product links for model: {model['name']} (brand: {brand['name']})")
-
                 model_bar.close()
             else:
                 product_links: List[RawProduct] = brand.get("product_links", [])
                 if product_links:
+                    tasks = []
+                    for product_link in product_links:
+                        task = asyncio.create_task(fetch_product_details(session, product_link, base_url))
+                        tasks.append((task, product_link))
+
                     product_bar: TqdmType = tqdm(total=len(product_links), desc="Products (no models)", position=1, leave=False)
-
-                    tasks: List[Coroutine[Any, Any, RawProductDetails]] = [
-                        fetch_product_details(session, product_link, base_url)
-                        for product_link in product_links
-                    ]
-
-                    results: List[RawProductDetails] = []
-                    for coro in tqdm_asyncio.as_completed(tasks, desc="Products (no models)", total=len(tasks)):
-                        result: RawProductDetails = await coro
-                        results.append(result)
+                    for coro in asyncio.as_completed([t for t, _ in tasks]):
+                        result = await coro
+                        for t, product_link in tasks:
+                            if t == coro:
+                                product_link.update(result)
+                                break
                         product_bar.update(1)
-
-                    for i, product_link in enumerate(product_links):
-                        product_link.update(results[i])
-
                     product_bar.close()
                 else:
                     LOGGER.warning(f"No product links for brand: {brand['name']}")
-
         brand_bar.close()
         LOGGER.info("✅ Finished fetching all product details.")

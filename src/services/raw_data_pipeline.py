@@ -100,7 +100,7 @@ async def get_raw_data() -> RawFormat:
             if SHOULD_USE_TEMP_DATA:
                 save_data(TEMP_DATA_PATH, raw_data)
 
-        await enrich_all_product_details_async(raw_data)
+        await enrich_all_product_details_async(raw_data, BASE_URL)
 
         return raw_data
 

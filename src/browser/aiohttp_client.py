@@ -17,6 +17,7 @@ Version: 1.0.0
 """
 
 import asyncio
+import random
 from typing import Optional
 from aiohttp import ClientSession, ClientTimeout
 from settings import HEADERS, LOGGER
@@ -26,56 +27,76 @@ class AiohttpClient:
     def __init__(
         self,
         delay_between_requests: float = 0,
-        retries: int = 1,
-        timeout: float = 15
+        retries: int = 10,
+        timeout: float = 15,
+        max_concurrent_requests: int = 30,
     ):
         """
         Initialize the AiohttpClient.
 
         Args:
-            delay_between_requests (float): Delay in seconds between consecutive requests.
+            delay_between_requests (float): Base delay (in seconds) between requests.
             retries (int): Number of retry attempts on failure.
-            timeout (float): Timeout in seconds for each request.
+            timeout (float): Timeout (in seconds) per request.
+            max_concurrent_requests (int): Max number of concurrent requests.
         """
         self.delay_between_requests = delay_between_requests
         self.retries = retries
         self.timeout = ClientTimeout(total=timeout)
         self.number_of_requests = 0
         self._lock = asyncio.Lock()
+        self._semaphore = asyncio.Semaphore(max_concurrent_requests)
 
     async def fetch_html(self, session: ClientSession, url: str) -> Optional[str]:
         """
-        Asynchronously fetch HTML content from the specified URL with retry and delay.
+        Fetch HTML content from the given URL with retries, delay, and semaphore control.
 
         Args:
-            session (ClientSession): An aiohttp ClientSession instance to make the request.
-            url (str): The URL to fetch HTML content from.
+            session (ClientSession): aiohttp session object.
+            url (str): URL to fetch.
 
         Returns:
-            Optional[str]: The fetched HTML content as a string, or None if all attempts fail.
+            Optional[str]: HTML content or None if all retries fail.
         """
         LOGGER.info("Fetching HTML via aiohttp: %s", url)
-        for attempt in range(1, self.retries + 1):
-            try:
-                async with session.get(url, headers=HEADERS, timeout=self.timeout) as response:
-                    response.raise_for_status()
-                    html = await response.text()
 
-                    if not html.strip():
-                        LOGGER.warning("Fetched HTML is empty for %s", url)
-                        return None
+        async with self._semaphore:
+            for attempt in range(1, self.retries + 1):
+                try:
+                    async with session.get(url, headers=HEADERS, timeout=self.timeout) as response:
+                        response.raise_for_status()
+                        html = await response.text()
 
-                    async with self._lock:
-                        self.number_of_requests += 1
+                        if not html.strip():
+                            LOGGER.warning("Fetched HTML is empty for %s", url)
+                            return None
 
+                        async with self._lock:
+                            self.number_of_requests += 1
+
+                        if self.delay_between_requests > 0:
+                            delay = random.uniform(
+                                self.delay_between_requests,
+                                self.delay_between_requests + 0.5
+                            )
+                            LOGGER.info("Random delay: %.2f seconds", delay)
+                            await asyncio.sleep(delay)
+
+                        LOGGER.info("Successfully fetched: %s", url)
+                        return html
+
+                except Exception as e:
                     if self.delay_between_requests > 0:
-                        LOGGER.info("Delay between requests: %.2f seconds", self.delay_between_requests)
-                        await asyncio.sleep(self.delay_between_requests)
+                        delay = random.uniform(
+                            self.delay_between_requests,
+                            self.delay_between_requests + 0.5
+                        )
+                        LOGGER.info("Retry delay: %.2f seconds", delay)
+                        await asyncio.sleep(delay)
 
-                    LOGGER.info("Successfully fetched: %s", url)
-                    return html
-            except Exception as e:
-                LOGGER.warning("Attempt %d to fetch %s failed: %s", attempt, url, e)
-                if attempt == self.retries:
-                    LOGGER.error("All retries failed for %s", url)
+                    LOGGER.warning("Attempt %d to fetch %s failed: %s", attempt, url, e)
+
+                    if attempt == self.retries:
+                        LOGGER.error("All retries failed for %s", url)
+
         return None
